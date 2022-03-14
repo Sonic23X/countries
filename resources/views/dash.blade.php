@@ -18,9 +18,14 @@
             </div>
         </div>
         <div class="row mt-3">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <a class="btn btn-primary w-100" href="{{ url('new') }}">
                     Nuevo
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a class="btn btn-info text-white w-100" href="{{ url('api/csv') }}">
+                    Descargar
                 </a>
             </div>
         </div>
