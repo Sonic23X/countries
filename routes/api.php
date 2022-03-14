@@ -16,6 +16,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('access', [CountryController::class, 'auth']);
 Route::post('new', [CountryController::class, 'new']);
-Route::put('update/{code}', [CountryController::class, 'update']);
-Route::delete('delete/{code}', [CountryController::class, 'destroy']);
+Route::put('update', [CountryController::class, 'update']);
+Route::delete('delete', [CountryController::class, 'destroy']);
 Route::get('csv', [CountryController::class, 'csv']);
