@@ -17,5 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('login', [ViewController::class, 'login']);
 Route::get('dash', [ViewController::class, 'dash']);
 Route::get('new', [ViewController::class, 'new']);
-Route::get('edit', [ViewController::class, 'edit']);
-Route::get('delete', [ViewController::class, 'delete']);
+Route::get('edit/{code}', [ViewController::class, 'edit']);

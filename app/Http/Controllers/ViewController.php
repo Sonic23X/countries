@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Country;
 
 class ViewController extends Controller
 {
@@ -13,7 +14,8 @@ class ViewController extends Controller
 
     public function dash()
     {
-        return view('dash');
+        $countries = Country::all();
+        return view('dash', compact('countries'));
     }
 
     public function new()
@@ -21,13 +23,9 @@ class ViewController extends Controller
         return view('new');
     }
 
-    public function edit()
+    public function edit($code)
     {
-        return view('edit');
-    }
-
-    public function delete()
-    {
-        return view('delete');
+        $country = Country::where('code', $code)->firstOrFail();
+        return view('edit', compact('country'));
     }
 }

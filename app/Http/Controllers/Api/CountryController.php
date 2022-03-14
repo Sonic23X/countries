@@ -62,7 +62,7 @@ class CountryController extends Controller
                 'code' => $request->code,
                 'name' => $request->name,
                 'continent' => $request->continent,
-                'population' => $request->popilation
+                'population' => $request->population
             ]);
 
             // Refresh token
@@ -76,7 +76,7 @@ class CountryController extends Controller
             return response()->json(['message' => 'Token not found'], 401);
     }
 
-    public function update(Request $request, $code)
+    public function update(Request $request)
     {
         if (isset($request->token)) {
             $actCountry = Token::where('token', $request->token)->first();
@@ -91,10 +91,10 @@ class CountryController extends Controller
             ]);
 
             // Update a row
-            $country = Country::where('code', $code)->update([
+            $country = Country::where('code', $request->code)->update([
                 'name' => $request->name,
                 'continent' => $request->continent,
-                'population' => $request->popilation
+                'population' => $request->population
             ]);
 
             // Refresh token
@@ -108,7 +108,7 @@ class CountryController extends Controller
             return response()->json(['message' => 'Token not found'], 401);
     }
 
-    public function destroy(Request $request, $code)
+    public function destroy(Request $request)
     {
         if (isset($request->token)) {
             $actCountry = Token::where('token', $request->token)->first();
@@ -116,7 +116,7 @@ class CountryController extends Controller
                 return response()->json(['message' => 'Token no valid'], 401);
 
             // Delete the row
-            Country::where('code', $code)->delete();
+            Country::where('code', $request->code)->delete();
 
             return response()->json(['message' => 'Country deleted',], 200);
         } else
