@@ -20,4 +20,14 @@ class Country extends Model
         'continent',
         'population'
     ];
+
+    /**
+     * Get all of the idioms for the Country
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function idioms()
+    {
+        return $this->hasMany(Idiom::class, 'countryCode', 'code');
+    }
 }
