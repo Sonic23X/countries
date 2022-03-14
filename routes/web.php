@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ViewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('login', [ViewController::class, 'login']);
+Route::get('dash', [ViewController::class, 'dash']);
+Route::get('new', [ViewController::class, 'new']);
+Route::get('edit', [ViewController::class, 'edit']);
+Route::get('delete', [ViewController::class, 'delete']);

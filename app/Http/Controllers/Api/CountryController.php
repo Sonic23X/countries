@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Country;
@@ -17,7 +16,7 @@ class CountryController extends Controller
     {
         // Validate fields
         $request->validate([
-            'code' => 'required|string|max:3',
+            'code' => 'required|string',
             'token' => 'required|string'
         ]);
 
@@ -40,6 +39,7 @@ class CountryController extends Controller
         else
             return response()->json(['access' => false, 'message' => 'Token no valid'], 401);
 
+        return response()->json(['access' => false, 'message' => 'Token no valid'], 401);
     }
 
     public function new(Request $request)
@@ -72,8 +72,7 @@ class CountryController extends Controller
             ]);
 
             return response()->json(['country' => $country, 'token' => $token], 201);
-        }
-        else
+        } else
             return response()->json(['message' => 'Token not found'], 401);
     }
 

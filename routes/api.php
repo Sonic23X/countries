@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Api\CountryController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('access', [CountryController::class, 'auth']);
+Route::post('new', [CountryController::class, 'new']);
+Route::put('update/{code}', [CountryController::class, 'update']);
+Route::delete('delete/{code}', [CountryController::class, 'destroy']);
 Route::get('csv', [CountryController::class, 'csv']);
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
