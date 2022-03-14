@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('countries', function (Blueprint $table) {
             $table->string('code')->primary();
             $table->string('name');
-            $table->string('continent');
-            $table->bigInteger('population');
+            $table->string('continent')->nullable();
+            $table->bigInteger('population')->nullable();
             $table->timestamps();
         });
     }
